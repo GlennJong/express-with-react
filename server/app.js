@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 var express = require('express');
-var passport = require('passport');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var actionRouter = require('./routes/action');
@@ -17,8 +16,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
-app.use(passport.initialize());
-app.use(passport.session());
 
 // Set backend action router
 app.use('/', actionRouter);
